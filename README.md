@@ -2,6 +2,20 @@
 
 Raspberry Pi compatible Docker Image with a minimal `gogs git` server.
 
+## UPDATE
+
+To build:
+
+```
+docker build -t gogs:0.11.34 .
+```
+
+To run:
+
+```
+docker run -d --name gogs --publish 8022:22 --publish 3002:3000 --volume $(pwd)/gogs-data/:/data gogs:0.11.34
+```
+
 ## Details
 - [BLOG with tutorial](http://blog.hypriot.com/post/run-your-own-github-like-service-with-docker/)
 - [Source Project Page](https://github.com/hypriot)
