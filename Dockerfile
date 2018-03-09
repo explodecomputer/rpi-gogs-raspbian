@@ -29,8 +29,15 @@ mkdir /gogits
 
 WORKDIR /gogits
 
-ADD ./content/ /gogits/
+ADD https://dl.gogs.io/0.11.34/raspi2_armv6.zip /gogits/
 
+RUN apt-get install -y unzip
+RUN unzip raspi2_armv6.zip
+
+RUN mv gogs temp
+RUN mv temp/* .
+RUN rm raspi2_armv6.zip
+RUN rm -r temp
 ADD start.sh /gogits/
 RUN chmod a+x start.sh
 
